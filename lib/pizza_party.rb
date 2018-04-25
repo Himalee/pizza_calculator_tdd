@@ -1,2 +1,8 @@
 class PizzaParty
-end 
+
+  def self.divide(string)
+    0
+  end
+
+
+end
