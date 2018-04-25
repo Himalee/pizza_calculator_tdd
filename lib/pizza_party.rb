@@ -1,8 +1,11 @@
 class PizzaParty
 
-  def self.divide(string)
+  def self.people(string)
     0
   end
 
+  def self.pizza(string)
+    0
+  end 
 
 end
