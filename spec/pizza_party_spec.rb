@@ -4,7 +4,7 @@ describe PizzaParty do
 
   describe ".people" do
 
-    context "given an empty string" do
+    context "given an empty string for number of people" do
       it "returns zero" do
         expect(PizzaParty.people("")).to eql(0)
 
@@ -15,7 +15,7 @@ describe PizzaParty do
 
   describe ".pizza" do
 
-    context "given an empty string" do
+    context "given an empty string for number of pizzas" do
       it "returns zero" do
         expect(PizzaParty.pizza("")).to eql(0)
       end
