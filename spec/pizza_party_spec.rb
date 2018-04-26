@@ -1,26 +1,30 @@
 require "pizza_party"
 
 describe PizzaParty do
+  describe "#calculate_portions" do
+      context "one person, one pizza, one slice" do
+        it "returns 1" do
+          expect(subject.calculate_portions(1, 1, 1)).to be == [1, 0]
+        end
+      end
 
-  describe ".people" do
+      context "eight people, one pizza, eight slices" do
+        it "returns 1" do
+          expect(subject.calculate_portions(8, 1, 8)).to be == [1, 0]
+        end
+      end
 
-    context "given an empty string for number of people" do
-      it "returns zero" do
-        expect(PizzaParty.people("")).to eql(0)
+      context "eight people, two pizzas, eight slices" do
+        it "returns 2" do
+          expect(subject.calculate_portions(8, 2, 8)).to be == [2, 0]
+        end
+      end
 
+      context "eight people, two pizzas, five slices" do
+        it "returns 2" do
+          expect(subject.calculate_portions(8, 2, 5)).to be == [1, 2]
+        end
       end
     end
-
-  end
-
-  describe ".pizza" do
-
-    context "given an empty string for number of pizzas" do
-      it "returns zero" do
-        expect(PizzaParty.pizza("")).to eql(0)
-      end
-    end
-
-  end
 
 end
