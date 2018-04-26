@@ -18,14 +18,23 @@ class PizzaParty
   end
 
   def calculate_portions(people, pizza, slices)
-        total_slices = pizza * slices
-        [total_slices / people, total_slices % people]
+    total_slices = pizza * slices
+    result_list = [total_slices / people, total_slices % people]
+    if result_list.last.zero?
+      result_list.first
+    else
+      result_list
+    end
   end
 
   def get_user_input
-    @input.gets.chomp!
+    input = @input.gets.chomp!
+    if input.to_i > 0
+      input
+    else
+      @output.puts "Please enter a positive number"
+    end
   end
-
 
 end
 
