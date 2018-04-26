@@ -1,7 +1,8 @@
 class PizzaParty
 
-  def initialize(output = $stdout)
+  def initialize(output = $stdout, input = $stdin)
     @output = output
+    @input = input
   end
 
   def people_prompt
@@ -20,6 +21,11 @@ class PizzaParty
         total_slices = pizza * slices
         [total_slices / people, total_slices % people]
   end
+
+  def get_user_input
+    @input.gets.chomp!
+  end
+
 
 end
 

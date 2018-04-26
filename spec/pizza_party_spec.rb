@@ -4,7 +4,8 @@ describe PizzaParty do
 
   before(:each) do
     @output = StringIO.new
-    @pizza_party = PizzaParty.new(@output)
+    @input = StringIO.new("1\n")
+    @pizza_party = PizzaParty.new(@output, @input)
   end
 
   describe "#calculate_portions" do
@@ -53,5 +54,17 @@ describe PizzaParty do
         expect(@output.string).to eq("How many slices does each pizza have?\n")
       end
     end
+
+    describe "#get_user_input" do
+      it "gets user input and returns it" do
+        expected_output = "1"
+        expect(@pizza_party.get_user_input).to eq(expected_output)
+      end
+
+    end
+
+
+
+
 
 end
