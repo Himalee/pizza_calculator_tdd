@@ -3,10 +3,10 @@ require "pizza_party"
 describe PizzaParty do
 
   before(:each) do
-    @output = StringIO.new
-    @input = StringIO.new("1\n")
-    @negative_int_input = StringIO.new("-1\n")
-    @pizza_party = PizzaParty.new(@output, @input)
+    @output = OurStringIO.new
+    @input = OurStringIO.new("1\n")
+    @negative_int_input = OurStringIO.new("-1\n")
+    @pizza_party = PizzaParty.new(OurStringIO.new, @input)
   end
 
   describe "#calculate_portions" do
@@ -67,7 +67,8 @@ describe PizzaParty do
       context "user input is a string containing a negative integer" do
         it "gets user input and prompts user for positive integer" do
         expected_output = "Please enter a positive number\n"
-        PizzaParty.new(@output, @negative_int_input).get_user_input
+        pp = PizzaParty.new(@output, @negative_int_input)
+        pp.get_user_input
         expect(@output.string).to eq expected_output
       end
     end
@@ -78,3 +79,23 @@ describe PizzaParty do
 
 
 end
+
+# class OurStringIO
+#
+#   def initialize(string_to_input = "")
+#     @string_to_input = string_to_input
+#   end
+#
+#   def gets
+#     @string_to_input
+#   end
+#
+#   def puts(string = "")
+#     @string_to_output = string
+#   end
+#
+#   def string
+#     @string_to_output + "\n"
+#   end
+#
+# end
