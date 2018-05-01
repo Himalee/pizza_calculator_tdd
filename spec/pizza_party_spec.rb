@@ -3,10 +3,10 @@ require "pizza_party"
 describe PizzaParty do
 
   before(:each) do
-    @output = OurStringIO.new
-    @input = OurStringIO.new("1\n")
-    @negative_int_input = OurStringIO.new("-1\n")
-    @pizza_party = PizzaParty.new(OurStringIO.new, @input)
+    @output = StringIO.new
+    @input = StringIO.new("1\n")
+    @negative_int_input = StringIO.new("-1\n")
+    @pizza_party = PizzaParty.new(@output, @input)
   end
 
   describe "#calculate_portions" do
@@ -79,23 +79,3 @@ describe PizzaParty do
 
 
 end
-
-# class OurStringIO
-#
-#   def initialize(string_to_input = "")
-#     @string_to_input = string_to_input
-#   end
-#
-#   def gets
-#     @string_to_input
-#   end
-#
-#   def puts(string = "")
-#     @string_to_output = string
-#   end
-#
-#   def string
-#     @string_to_output + "\n"
-#   end
-#
-# end
